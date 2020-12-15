@@ -15,6 +15,7 @@ const (
 var empty = struct{}{}
 var forms map[string]struct{} = map[string]struct{}{user: empty, transaction: empty}
 
+// For sessions
 func Generate_Base64_ID(size int, prefix string) (string, error) {
 	b := make([]byte, size)
 	_, err := rand.Read(b)

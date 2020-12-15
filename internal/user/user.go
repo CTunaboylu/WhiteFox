@@ -1,4 +1,4 @@
-package main
+package user
 
 import (
 	"crypto/sha256"
@@ -23,7 +23,8 @@ fmt.Println(t.Format(layoutUS)) // December 31, 1999
 
 type User struct {
 	// Identity
-	Username string `json:"username"`
+	Internal_Username string `json:"internal_username"`
+	Public_Username   string `json:"public_username"`
 	// Username [32]byte `json:"username"`
 	Name    string  `json:"name"`
 	Surname string  `json:"surname"`
@@ -59,12 +60,12 @@ func (u *User) inject() {
 
 }
 
-func main() {
-	u := User{
-		Name:    "Cem",
-		Surname: "Tunaboylu",
-		ID:      1,
-	}
-	u.Username = u.unique_username()
-	u.inject()
-}
+// func main() {
+// 	u := User{
+// 		Name:    "Cem",
+// 		Surname: "Tunaboylu",
+// 		ID:      1,
+// 	}
+// 	u.Internal_Username = u.unique_username()
+// 	u.inject()
+// }
