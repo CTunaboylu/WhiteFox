@@ -1,0 +1,4 @@
+export DB_USER=root
+export DB_PASS=//23C04e
+export DB_ADDR=127.0.0.1:3306
+export DB_NAME=Cry
