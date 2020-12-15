@@ -27,7 +27,7 @@ func connect_to_DB() *sql.DB {
 	}
 	return conn
 }
-func Check_ID_Unique( /*id string*/ ) bool {
+func Check_ID_Unique(id string) bool {
 	conn := connect_to_DB()
 	defer conn.Close()
 	// var id_unique bool

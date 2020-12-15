@@ -1,10 +1,12 @@
 package tokenize
 
 import (
-	"GOld/cryptography/DB"
+	// "GOld/cryptography/DB"
 	"crypto/rand"
 	"encoding/base64"
 	"fmt"
+
+	"github.com/CTunaboylu/WhiteFox/pkg/DB"
 )
 
 const (

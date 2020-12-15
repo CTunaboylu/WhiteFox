@@ -4,22 +4,25 @@ import (
 	"fmt"
 
 	"github.com/CTunaboylu/WhiteFox/pkg/ui"
-
-	"golang.org/x/crypto/openpgp"
 )
 
-func main() {
-	var e *openpgp.Entity
-	e, err := openpgp.NewEntity("itis", "test", "itis@itis3.com", nil)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
+// "../../pkg/ui"
 
-	for s, ident := range e.Identities {
-		fmt.Printf("%T : %s  \n", s, ident.UserId.Id) //
-		fmt.Printf("%T : %v \n", e.PrimaryKey.KeyId, e.PrimaryKey.KeyId)
-	}
+func main() {
+
+	Create_New_PGP()
+
+	// var e *openpgp.Entity
+	// e, err := openpgp.NewEntity("itis", "test", "itis@itis3.com", nil)
+	// if err != nil {
+	// 	fmt.Println(err)
+	// 	return
+	// }
+
+	// for s, ident := range e.Identities {
+	// 	fmt.Printf("%T : %s  \n", s, ident.UserId.Id) //
+	// 	fmt.Printf("%T : %v \n", e.PrimaryKey.KeyId, e.PrimaryKey.KeyId)
+	// }
 
 	// Sign all the identities
 	// for _, id := range e.Identities {
@@ -40,11 +43,12 @@ func main() {
 	// e.Serialize(w)
 }
 
-func Create_New_PGP() *openpgp.Entity {
+func Create_New_PGP() /* *openpgp.Entity */ {
 	var pwd string
-	_, err := ui.Get_Sensitive_Information("First enter the password that you want to protect your keys with: ")
+	pwd, err := ui.Get_Sensitive_Information("First enter the password that you want to protect your keys with: ")
 	if err != nil {
 		fmt.Println(err)
 	}
+	fmt.Printf("Password: %s ", pwd)
 
 }
