@@ -1,4 +1,4 @@
-package user
+package main
 
 import (
 	"fmt"
@@ -45,10 +45,11 @@ func main() {
 
 func Create_New_PGP() /* *openpgp.Entity */ {
 	var pwd string
-	pwd, err := ui.Get_Sensitive_Information("First enter the password that you want to protect your keys with: ")
+	fmt.Print("First, ")
+	pwd, err := ui.Get_Sensitive_Information("Enter the password that you want to protect your keys with: ")
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Printf("Password: %s ", pwd)
+	fmt.Printf("\nPassword: %s\n ", pwd)
 
 }

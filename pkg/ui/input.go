@@ -31,11 +31,22 @@ func Get_Pwd_String() string {
 func Get_Sensitive_Information(message string) (string, error) {
 
 	fmt.Print(message)
-	bytePassword, err := terminal.ReadPassword(int(syscall.Stdin))
+	byte_data_first, err := terminal.ReadPassword(int(syscall.Stdin))
 	if err != nil {
 		return "", err
 	}
 
-	password := string(bytePassword)
-	return strings.TrimSpace(password), nil
+	fmt.Printf("\n %s", message)
+	byte_data_second, err := terminal.ReadPassword(int(syscall.Stdin))
+	if err != nil {
+		return "", err
+	}
+	d1 := string(byte_data_first)
+	d2 := string(byte_data_second)
+	if d1 != d2 {
+		fmt.Println("Information you provided do not match. ")
+		return "", fmt.Errorf("DoNotMatch")
+	}
+
+	return strings.TrimSpace(d1), nil
 }
